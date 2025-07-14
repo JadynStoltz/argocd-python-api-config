@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-api
+spec:
+  selector:
+    matchLabels:
+      app: python-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: python-api
+    spec:
+      containers:
+        - name: python-api
+          image: JadynStoltz/examplenode-dev:10
+          ports:
+            - containerPort: 8000
